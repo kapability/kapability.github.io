@@ -3,6 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content= "width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
 
 	<title> Sign Up </title>
 
@@ -10,28 +14,78 @@
 	<link type="text/css" rel="stylesheet" href="css/responsiveness.css
  		"/>
 
- 	<!-- Initialize SDK for Linkedin --> 
-<!--  	
- 	<script type="text/javascript" src="//platform.linkedin.com/in.js">
+ 	</head>
+
+  <body>
+
+
+  <!-- Google Sign In -->
+<!-- 
+  Client_ID:"386556328184-tp72uthmbo8gvub9dd61nok234f25e3b.apps.googleusercontent.com"
+
+  Client_Secret = "5c6XPeGOcZgrpgR42A6PYgIL" -->
+
+ 
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      };
+    </script>
+
+    <!-- Google Platform Library integrate Google Sign-In -->
+
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  function init() {
+  gapi.load('auth2', function() { // Ready. });
+}
+
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <!-- Facebook Sign In -->
+
+  <!--Linkedin Sign In --> 
+
+
+
+
+  </body>
+
+
+
+
+  <!-- Initialize SDK for Linkedin --> 
+<!--    
+  <script type="text/javascript" src="//platform.linkedin.com/in.js">
     api_key:   [API_KEY]
     // onLoad:    [ONLOAD]
     // authorize: [AUTHORIZE]
     // lang:      [LANG_LOCALE]
-	</script> -->
-
- 	</head>
+  </script> -->
 
  	<!--  Google Sign In Button https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin-->
 
- 	<script src="https://apis.google.com/js/platform.js" async defer></script>
+ 	<!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
 	
 	<meta name="google-signin-client_id" content="386556328184-bv0fo5ai3kecckna9jck49vnd3vskd8p.apps.googleusercontent.com ">
 
 	<div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-	<!-- function retrieve profile information for user -->
-
-<!-- function onSignIn(googleUser) {
+	<!- function retrieve profile information for user -->
+<!-- 
+function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
@@ -42,7 +96,7 @@
 
 <!-- Users can sign out of app without signing out of Google -->
 
-
+<!-- 
 <a href="#" onclick="signOut();">Sign out</a>
 <script>
   function signOut() {
@@ -51,7 +105,7 @@
       console.log('User signed out.');
     });
   }
-</script>
+</script> -->
 <!-- 
 Client ID
     386556328184-6s0dn6dqb7qq8202780g5gdst9iej10n.apps.googleusercontent.com
@@ -60,4 +114,3 @@ Client Secret
 
 
     <!-- Linkedin Login -->
-
